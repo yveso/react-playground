@@ -1,7 +1,7 @@
 import React from 'react';
 import FancyDiv from './FancyDiv';
 
-const Footer = (props) => {
+const Footer = () => {
   return (
     <FancyDiv>
       <p>Footer</p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BorderedDiv from './BorderedDiv';
 
 class ItemDetail extends React.Component {
@@ -12,6 +13,10 @@ class ItemDetail extends React.Component {
     );
   }
 }
+
+ItemDetail.propTypes = {
+  item: PropTypes.object.isRequired
+};
 
 export default ItemDetail;
 /*
