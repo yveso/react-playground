@@ -1,0 +1,17 @@
+.site {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-body {
+    background: ghostwhite;
+    flex: 1 1 auto;
+    display: flex;
+}
+
+.stie-main {
+    flex: 1 1 auto;
+    justify-content: center;
+    align-content: center;
+}
