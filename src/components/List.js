@@ -12,7 +12,7 @@ class List extends React.Component {
       <div>
         <ListContainer>
           {
-            items.map(
+            items.sort((a, b) => b.score - a.score).map(
               x =>
                 <li key={x.id}>
                   <Link to={`/item/${x.id}`} style={{ textDecoration: 'none'}} >
