@@ -7,7 +7,7 @@ import ListContainer from './ListContainer';
 
 class List extends React.Component {
   render() {
-    const { items, updateItem } = this.props;
+    const { items } = this.props;
     return (
       <div>
         <ListContainer>
@@ -18,7 +18,6 @@ class List extends React.Component {
                   <Link to={`/item/${x.id}`} style={{ textDecoration: 'none'}} >
                     <ListItem
                       item={x}
-                      updateItem={updateItem}
                     />
                   </Link>
               </li>
@@ -32,7 +31,6 @@ class List extends React.Component {
 
 List.propTypes = {
   items: PropTypes.array,
-  updateItem: PropTypes.func
 };
 
 export default List;

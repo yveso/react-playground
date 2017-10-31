@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import update from 'immutability-helper';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -22,6 +23,27 @@ class App extends Component {
     this.setState({ items: data });
   }
 
+  getItemByID = (id) => {
+    return this.state.items.find(item => item.id === id);
+  }
+
+  modifyItemScore = (item, func) => {
+    const oldItems = this.state.items;
+    const itemIndex = oldItems.findIndex(i => item.id === i.id);
+    const newItem = update(item, {score: {$apply: func }});
+    const newItems = update(oldItems, {$splice: [[itemIndex, 1, newItem]]});
+
+    this.setState({ items: newItems });
+  }
+
+  increaseItemScore = (item) => {
+    this.modifyItemScore(item, score => score + 1);
+  }
+
+  decreaseItemScore = (item) => {
+    this.modifyItemScore(item, score => score - 1);
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -31,15 +53,17 @@ class App extends Component {
         </Link>
         <div className="site-body">
             <List items={this.state.items} />
-            <div className="ste-main">
+            <div className="site-main">
                 <Switch>
                   <Route path="/" exact component={ChooseItemMessage} />
                   <Route
                     path="/item/:itemID"
                     render={ (props) =>
                       <ItemDetail
-                        {...props}
-                        item={this.state.items[props.match.params.itemID]} />
+                        item={this.getItemByID(Number(props.match.params.itemID))}
+                        increase={this.increaseItemScore}
+                        decrease={this.decreaseItemScore}
+                        />
                     }
                   />
                   <Route component={Footer} />
