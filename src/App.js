@@ -5,7 +5,7 @@ import update from 'immutability-helper';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import List from './components/List';
-import ChooseItemMessage from './components/ChooseItemMessage';
+import WhatToDo from './components/WhatToDo';
 import ItemDetail from './components/ItemDetail';
 import NewItem from './components/NewItem';
 import data from './data/sample';
@@ -77,7 +77,7 @@ class App extends Component {
             </div>
             <div className="site-main">
                 <Switch>
-                  <Route path="/" exact component={ChooseItemMessage} />
+                  <Route path="/" exact render={() => <WhatToDo itemCount={this.state.items.length} /> } />
                   <Route
                     path="/item/:itemID"
                     render={ (props) =>
