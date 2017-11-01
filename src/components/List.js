@@ -4,12 +4,14 @@ import {Link} from 'react-router-dom';
 
 import ListItem from './ListItem';
 import ListContainer from './ListContainer';
+import BorderedDiv from './BorderedDiv';
 
 class List extends React.Component {
   render() {
     const { items } = this.props;
     return (
-      <div>
+      <BorderedDiv>
+        <h1>My Items</h1>
         <ListContainer>
           {
             items.sort((a, b) => b.score - a.score).map(
@@ -24,7 +26,7 @@ class List extends React.Component {
             )
           }
         </ListContainer>
-      </div>
+      </BorderedDiv>
     );
   }
 }

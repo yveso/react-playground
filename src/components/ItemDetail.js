@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BorderedDiv from './BorderedDiv';
+import {Button} from './Buttons';
 
 class ItemDetail extends React.Component {
   removeItemAndRouteBack = (item) => {
@@ -15,12 +16,12 @@ class ItemDetail extends React.Component {
       <BorderedDiv>
         <h1>{title}</h1>
         <p style={{fontSize: '4rem'}}>
-          <button onClick={() => decrease(item)}>-</button>
-          <span>{score}</span>
-          <button onClick={() => increase(item)}>+</button>
+          <Button onClick={() => decrease(item)}>-</Button>
+          <span style={{color: 'silver', fontSize: '15rem', margin: '10px'}}>{score}</span>
+          <Button onClick={() => increase(item)}>+</Button>
         </p>
         <p>
-          <button onClick={() => this.removeItemAndRouteBack(item)}>Delete Me</button>
+          <Button onClick={() => this.removeItemAndRouteBack(item)}>Delete Me</Button>
         </p>
       </BorderedDiv>
     );
