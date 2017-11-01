@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import List from './components/List';
 import ChooseItemMessage from './components/ChooseItemMessage';
 import ItemDetail from './components/ItemDetail';
+import NewItem from './components/NewItem';
 import data from './data/sample';
 import './App.css';
 
@@ -44,6 +45,18 @@ class App extends Component {
     this.modifyItemScore(item, score => score - 1);
   }
 
+  addItem = (title) => {
+    const newItems = update(
+      this.state.items,
+      {$push: [{
+        id: Date.now(),
+        title: title,
+        score: 0
+      }]}
+    );
+    this.setState({ items: newItems });
+  };
+
   render() {
     return (
       <BrowserRouter>
@@ -52,7 +65,10 @@ class App extends Component {
           <Header message="Toll, Toll, Supertoll"/>
         </Link>
         <div className="site-body">
-            <List items={this.state.items} />
+            <div>
+              <List items={this.state.items} />
+              <NewItem add={this.addItem} />
+            </div>
             <div className="site-main">
                 <Switch>
                   <Route path="/" exact component={ChooseItemMessage} />
