@@ -55,7 +55,13 @@ class App extends Component {
       }]}
     );
     this.setState({ items: newItems });
-  };
+  }
+
+  deleteItem = (item) => {
+    const index = this.state.items.findIndex(i => i.id === item.id);
+    const newItems = update(this.state.items, {$splice: [[index, 1]]});
+    this.setState({ items: newItems });
+  }
 
   render() {
     return (
@@ -79,6 +85,8 @@ class App extends Component {
                         item={this.getItemByID(Number(props.match.params.itemID))}
                         increase={this.increaseItemScore}
                         decrease={this.decreaseItemScore}
+                        remove={this.deleteItem}
+                        historyPush={props.history.push}
                         />
                     }
                   />

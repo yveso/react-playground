@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 import BorderedDiv from './BorderedDiv';
 
 class ItemDetail extends React.Component {
+  removeItemAndRouteBack = (item) => {
+    this.props.remove(item);
+    this.props.historyPush('/');
+  };
   render() {
     const { title, score } = this.props.item;
     const { item, increase, decrease } = this.props;
@@ -15,6 +19,9 @@ class ItemDetail extends React.Component {
           <span>{score}</span>
           <button onClick={() => increase(item)}>+</button>
         </p>
+        <p>
+          <button onClick={() => this.removeItemAndRouteBack(item)}>Delete Me</button>
+        </p>
       </BorderedDiv>
     );
   }
@@ -23,7 +30,9 @@ class ItemDetail extends React.Component {
 ItemDetail.propTypes = {
   item: PropTypes.object.isRequired,
   increase: PropTypes.func.isRequired,
-  decrease: PropTypes.func.isRequired
+  decrease: PropTypes.func.isRequired,
+  remove: PropTypes.func.isRequired,
+  historyPush: PropTypes.func.isRequired
 };
 
 export default ItemDetail;
