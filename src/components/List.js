@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 import ListItem from './ListItem';
-import ListContainer from './ListContainer';
+import OrderedList from './OrderedList';
 import BorderedDiv from './BorderedDiv';
 
 class List extends React.Component {
@@ -12,7 +12,7 @@ class List extends React.Component {
     return (
       <BorderedDiv>
         <h1>My Items</h1>
-        <ListContainer>
+        <OrderedList>
           {
             items.sort((a, b) => b.score - a.score).map(
               x =>
@@ -25,7 +25,7 @@ class List extends React.Component {
               </li>
             )
           }
-        </ListContainer>
+        </OrderedList>
       </BorderedDiv>
     );
   }

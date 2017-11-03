@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const ListContainer = styled.ul`
+const OrderedList = styled.ol`
   list-style-type: none;
   padding: 0px;
 `;
 
-export default ListContainer;
+export default OrderedList;
