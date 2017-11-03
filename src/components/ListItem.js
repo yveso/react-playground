@@ -1,25 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom';
 
 import BorderedDiv from './BorderedDiv';
 import ListItemHeading from './ListItemHeading';
 import ListItemScore from './ListItemScore';
 
-class ListItem extends React.Component {
-  render() {
-    const { title, score } = this.props.item;
-    return (
-      <BorderedDiv>
-        <ListItemHeading>{title}</ListItemHeading>
-        <ListItemScore>{score}</ListItemScore>
-      </BorderedDiv>
-    );
-  }
-}
+const ListItem = (props) => {
+  const { id, title, score } = props.item;
+  return (
+    <li>
+      <Link to={`/item/${id}`} style={{ textDecoration: 'none'}} >
+        <BorderedDiv>
+          <ListItemHeading>{title}</ListItemHeading>
+          <ListItemScore>{score}</ListItemScore>
+        </BorderedDiv>
+      </Link>
+    </li>
+  );
+};
 
 ListItem.propTypes = {
-  item: PropTypes.object,
-  updateItem: PropTypes.func
+  item: PropTypes.object.isRequired,
 };
 
 export default ListItem;
