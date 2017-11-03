@@ -27,7 +27,7 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({ items: data });
   }
 
