@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import update from 'immutability-helper';
 import { ThemeProvider } from 'styled-components';
 
@@ -79,9 +79,8 @@ class App extends Component {
       <BrowserRouter>
       <ThemeProvider theme={this.state.themes[this.state.activeTheme]}>
       <div className="site">
-        <Link to="/" style={{textDecoration: 'none'}}>
-          <Header message="Toll, Toll, Supertoll"/>
-        </Link>
+        <Header message="Toll, Toll, Supertoll"/>
+
         <div className="site-body">
             <div>
               <List items={this.state.items} />
@@ -106,6 +105,7 @@ class App extends Component {
                 </Switch>
             </div>
         </div>
+
         <Footer themes={this.state.themes} changeTheme={this.changeTheme}/>
       </div>
       </ThemeProvider>
