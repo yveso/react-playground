@@ -5,10 +5,9 @@ import { ThemeProvider } from 'styled-components';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import List from './components/List';
 import WhatToDo from './components/WhatToDo';
 import ItemDetail from './components/ItemDetail';
-import NewItem from './components/NewItem';
+import Sidebar from './components/Sidebar';
 import data from './data/sample';
 import './App.css';
 
@@ -82,10 +81,8 @@ class App extends Component {
         <Header message="Toll, Toll, Supertoll"/>
 
         <div className="site-body">
-            <div>
-              <List items={this.state.items} />
-              <NewItem add={this.addItem} />
-            </div>
+            <Sidebar items={this.state.items} addItem={this.addItem}/>
+
             <div className="site-main">
                 <Switch>
                   <Route path="/" exact render={() => <WhatToDo itemCount={this.state.items.length} /> } />
