@@ -1,13 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import BorderedDiv from './BorderedDiv';
 import {Button} from './Buttons';
+import ListItemScore from './ListItemScore';
 
 class ItemDetail extends React.Component {
   removeItemAndRouteBack = (item) => {
     this.props.remove(item);
     this.props.historyPush('/');
   };
+
   render() {
     const { title, score } = this.props.item;
     const { item, increase, decrease } = this.props;
@@ -15,9 +18,9 @@ class ItemDetail extends React.Component {
     return (
       <BorderedDiv>
         <h1>{title}</h1>
-        <p style={{fontSize: '4rem'}}>
+        <p>
           <Button onClick={() => decrease(item)}>-</Button>
-          <span style={{color: 'silver', fontSize: '15rem', margin: '10px'}}>{score}</span>
+          <ListItemScore makeItBigger>{score}</ListItemScore>
           <Button onClick={() => increase(item)}>+</Button>
         </p>
         <p>
