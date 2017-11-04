@@ -4,10 +4,19 @@ import BorderedDiv from './BorderedDiv';
 import {Button} from './Buttons';
 
 class NewItem extends React.Component {
-  addItem(event) {
+  constructor(props) {
+    super(props);
+    this.state = {name: ''};
+  }
+
+  handleChange = (event) => {
+    this.setState({name: event.target.value});
+  }
+
+  handleSubmit = (event) => {
     event.preventDefault();
-    this.props.add(this.inputField.value);
-    this.form.reset();
+    this.props.add(this.state.name);
+    this.setState({name: ''});
   }
 
   render() {
@@ -17,11 +26,14 @@ class NewItem extends React.Component {
         <BorderedDiv>
           <form
             ref={(input) => this.form = input}
-            onSubmit={(e) => this.addItem(e)}
+            onSubmit={(e) => this.handleSubmit(e)}
           >
             <input
-              type="text" placeholder="Name" required
-              ref={(input) => this.inputField = input}
+              type="text"
+              required
+              value={this.state.name}
+              placeholder="Name"
+              onChange={(e) => this.handleChange(e)}
             />
             <Button tpye="submit">Add</Button>
           </form>
