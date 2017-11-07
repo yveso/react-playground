@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import update from 'immutability-helper';
-import { ThemeProvider } from 'styled-components';
 
 import Header from './components/Header';
-import Footer from './components/Footer';
 import WhatToDo from './components/WhatToDo';
 import ItemDetail from './components/ItemDetail';
 import Sidebar from './components/Sidebar';
@@ -13,19 +11,15 @@ import './App.css';
 
 import { Provider } from 'react-redux';
 import store from './store';
+import ThemeContainer from './containers/ThemeContainer';
+import FooterContainer from './containers/FooterContainer';
 
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
-      items: [],
-      themes: {
-        black: { bg: 'black', fg: '#e0e0e0' },
-        blue: { bg: 'blue', fg: 'darkkhaki' },
-        pink: { bg: 'hotpink', fg: 'honeydew' }
-      },
-      activeTheme: 'black'
+      items: []
     };
   }
 
@@ -60,15 +54,11 @@ class App extends Component {
     this.setState({ items: newItems });
   }
 
-  changeTheme = (theme) => {
-    this.setState({ activeTheme: theme });
-  }
-
   render() {
     return (
       <Provider store={store}>
       <BrowserRouter>
-      <ThemeProvider theme={this.state.themes[this.state.activeTheme]}>
+      <ThemeContainer>
       <div className="site">
         <Header message="Toll, Toll, Supertoll"/>
 
@@ -89,14 +79,14 @@ class App extends Component {
                         />
                     }
                   />
-                  <Route component={Footer} />
+                  <Route component={<p>ToDo</p>} />
                 </Switch>
             </div>
         </div>
 
-        <Footer themes={this.state.themes} changeTheme={this.changeTheme}/>
+        <FooterContainer />
       </div>
-      </ThemeProvider>
+      </ThemeContainer>
       </BrowserRouter>
       </Provider>
     );

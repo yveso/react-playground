@@ -1,10 +1,13 @@
 import { createStore } from 'redux';
 import rootReducer from './reducers/index';
 import items from './data/sample';
+import themes from './data/themes';
 
 
 const initialState = {
-  items
+  items,
+  themes,
+  activeTheme: 'black'
 };
 
 let store = createStore(
