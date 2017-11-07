@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BorderedDiv from './BorderedDiv';
-import {Button} from './Buttons';
+import { Button } from './Buttons';
 
 class NewItem extends React.Component {
   constructor(props) {
@@ -24,10 +24,7 @@ class NewItem extends React.Component {
       <BorderedDiv>
         <h1>New Item</h1>
         <BorderedDiv>
-          <form
-            ref={(input) => this.form = input}
-            onSubmit={(e) => this.handleSubmit(e)}
-          >
+          <form onSubmit={(e) => this.handleSubmit(e)}>
             <input
               type="text"
               required

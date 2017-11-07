@@ -11,6 +11,9 @@ import Sidebar from './components/Sidebar';
 import data from './data/sample';
 import './App.css';
 
+import { Provider } from 'react-redux';
+import store from './store';
+
 class App extends Component {
   constructor() {
     super();
@@ -51,18 +54,6 @@ class App extends Component {
     this.modifyItemScore(item, score => score - 1);
   }
 
-  addItem = (title) => {
-    const newItems = update(
-      this.state.items,
-      {$push: [{
-        id: Date.now(),
-        title: title,
-        score: 0
-      }]}
-    );
-    this.setState({ items: newItems });
-  }
-
   deleteItem = (item) => {
     const index = this.state.items.findIndex(i => i.id === item.id);
     const newItems = update(this.state.items, {$splice: [[index, 1]]});
@@ -75,15 +66,15 @@ class App extends Component {
 
   render() {
     return (
+      <Provider store={store}>
       <BrowserRouter>
       <ThemeProvider theme={this.state.themes[this.state.activeTheme]}>
       <div className="site">
         <Header message="Toll, Toll, Supertoll"/>
 
         <div className="site-body">
-            <Sidebar items={this.state.items} addItem={this.addItem}/>
-
-            <div className="site-main">
+          <Sidebar />
+          <div className="site-main">
                 <Switch>
                   <Route path="/" exact render={() => <WhatToDo itemCount={this.state.items.length} /> } />
                   <Route
@@ -107,6 +98,7 @@ class App extends Component {
       </div>
       </ThemeProvider>
       </BrowserRouter>
+      </Provider>
     );
   }
 }
