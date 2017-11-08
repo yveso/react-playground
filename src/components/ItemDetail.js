@@ -19,9 +19,9 @@ class ItemDetail extends React.Component {
       <BorderedDiv>
         <h1>{title}</h1>
         <p>
-          <Button onClick={() => decrease(item)}>-</Button>
+          <Button onClick={() => decrease()}>-</Button>
           <ListItemScore makeItBigger>{score}</ListItemScore>
-          <Button onClick={() => increase(item)}>+</Button>
+          <Button onClick={() => increase()}>+</Button>
         </p>
         <p>
           <Button onClick={() => this.removeItemAndRouteBack(item)}>Delete Me</Button>
