@@ -4,29 +4,16 @@ import update from 'immutability-helper';
 
 import Header from './components/Header';
 import WhatToDo from './components/WhatToDo';
-import ItemDetail from './components/ItemDetail';
 import Sidebar from './components/Sidebar';
-import data from './data/sample';
 import './App.css';
 
 import { Provider } from 'react-redux';
 import store from './store';
 import ThemeContainer from './containers/ThemeContainer';
 import FooterContainer from './containers/FooterContainer';
+import ItemDetailContainer from './containers/ItemDetailContainer';
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      items: []
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ items: data });
-  }
-
   getItemByID = (id) => {
     return this.state.items.find(item => item.id === id);
   }
@@ -57,37 +44,26 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-      <BrowserRouter>
       <ThemeContainer>
+      <BrowserRouter>
       <div className="site">
         <Header message="Toll, Toll, Supertoll"/>
 
         <div className="site-body">
           <Sidebar />
           <div className="site-main">
-                <Switch>
-                  <Route path="/" exact render={() => <WhatToDo itemCount={this.state.items.length} /> } />
-                  <Route
-                    path="/item/:itemID"
-                    render={ (props) =>
-                      <ItemDetail
-                        item={this.getItemByID(Number(props.match.params.itemID))}
-                        increase={this.increaseItemScore}
-                        decrease={this.decreaseItemScore}
-                        remove={this.deleteItem}
-                        historyPush={props.history.push}
-                        />
-                    }
-                  />
-                  <Route component={<p>ToDo</p>} />
-                </Switch>
-            </div>
+            <Switch>
+              <Route path="/" exact component={WhatToDo} />
+              <Route path="/item/:id" component={ItemDetailContainer} />
+              <Route component={() => <p>Nein</p>} />
+            </Switch>
+          </div>
         </div>
 
         <FooterContainer />
       </div>
-      </ThemeContainer>
       </BrowserRouter>
+      </ThemeContainer>
       </Provider>
     );
   }
