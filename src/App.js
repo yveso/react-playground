@@ -7,7 +7,7 @@ import Sidebar from './components/Sidebar';
 import { Site, SiteBody, SiteMain } from './primitives/SiteDivs';
 
 import { Provider } from 'react-redux';
-import store from './store';
+import store from './store/store';
 import ThemeContainer from './containers/ThemeContainer';
 import FooterContainer from './containers/FooterContainer';
 import ItemDetailContainer from './containers/ItemDetailContainer';
