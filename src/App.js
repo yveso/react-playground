@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import WhatToDo from './containers/WhatToDo';
 import Sidebar from './components/Sidebar';
-import './App.css';
+import { Site, SiteBody, SiteMain } from './primitives/SiteDivs';
 
 import { Provider } from 'react-redux';
 import store from './store';
@@ -18,22 +18,22 @@ class App extends Component {
       <Provider store={store}>
       <ThemeContainer>
       <BrowserRouter>
-      <div className="site">
+      <Site>
         <Header message="Toll, Toll, Supertoll"/>
 
-        <div className="site-body">
+        <SiteBody>
           <Sidebar />
-          <div className="site-main">
+          <SiteMain>
             <Switch>
               <Route path="/" exact component={WhatToDo} />
               <Route path="/item/:id" component={ItemDetailContainer} />
               <Route component={() => <p>Nein</p>} />
             </Switch>
-          </div>
-        </div>
+          </SiteMain>
+        </SiteBody>
 
         <FooterContainer />
-      </div>
+      </Site>
       </BrowserRouter>
       </ThemeContainer>
       </Provider>
