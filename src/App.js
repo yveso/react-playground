@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
@@ -12,33 +12,31 @@ import ThemeContainer from './containers/ThemeContainer';
 import FooterContainer from './containers/FooterContainer';
 import ItemDetailContainer from './containers/ItemDetailContainer';
 
-class App extends Component {
-  render() {
-    return (
-      <Provider store={store}>
+const App = () => {
+  return (
+    <Provider store={store}>
       <ThemeContainer>
-      <BrowserRouter>
-      <Site>
-        <Header message="Toll, Toll, Supertoll"/>
+        <BrowserRouter>
+          <Site>
+            <Header message="Toll, Toll, Supertoll"/>
 
-        <SiteBody>
-          <Sidebar />
-          <SiteMain>
-            <Switch>
-              <Route path="/" exact component={WhatToDo} />
-              <Route path="/item/:id" component={ItemDetailContainer} />
-              <Route component={() => <p>Nein</p>} />
-            </Switch>
-          </SiteMain>
-        </SiteBody>
+            <SiteBody>
+              <Sidebar />
+              <SiteMain>
+                <Switch>
+                  <Route path="/" exact component={WhatToDo} />
+                  <Route path="/item/:id" component={ItemDetailContainer} />
+                  <Route component={() => <p>Nein</p>} />
+                </Switch>
+              </SiteMain>
+            </SiteBody>
 
-        <FooterContainer />
-      </Site>
-      </BrowserRouter>
+            <FooterContainer />
+          </Site>
+        </BrowserRouter>
       </ThemeContainer>
-      </Provider>
-    );
-  }
-}
+    </Provider>
+  );
+};
 
 export default App;
