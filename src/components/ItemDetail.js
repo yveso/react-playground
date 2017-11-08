@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import BorderedDiv from './BorderedDiv';
-import {Button} from './Buttons';
-import ListItemScore from './ListItemScore';
+import BorderedDiv from '../primitives/BorderedDiv';
+import { Button } from '../primitives/Buttons';
+import ListItemScore from '../primitives/ListItemScore';
 
 const ItemDetail = (props) => {
   const { title, score } = props.item;

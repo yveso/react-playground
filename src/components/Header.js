@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import FancyDiv from './FancyDiv';
-import Heading from './Heading';
+import FancyDiv from '../primitives/FancyDiv';
+import Heading from '../primitives/Heading';
 
 const Header = (props) => {
   return (

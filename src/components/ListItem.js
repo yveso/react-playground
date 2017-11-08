@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
-import BorderedDiv from './BorderedDiv';
-import ListItemHeading from './ListItemHeading';
-import ListItemScore from './ListItemScore';
+import BorderedDiv from '../primitives/BorderedDiv';
+import ListItemHeading from '../primitives/ListItemHeading';
+import ListItemScore from '../primitives/ListItemScore';
 
 const ListItem = (props) => {
   const { id, title, score } = props.item;

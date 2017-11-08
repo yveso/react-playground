@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import ListItem from './ListItem';
-import OrderedList from './OrderedList';
-import BorderedDiv from './BorderedDiv';
+import OrderedList from '../primitives/OrderedList';
+import BorderedDiv from '../primitives/BorderedDiv';
 
 const List = (props) => {
   const { items } = props;

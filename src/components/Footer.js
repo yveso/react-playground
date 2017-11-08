@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FancyDiv from './FancyDiv';
-import {ThemePreviewButton} from './Buttons';
+
+import FancyDiv from '../primitives/FancyDiv';
+import {ThemePreviewButton} from '../primitives/Buttons';
 
 class Footer extends React.Component {
   render() {

@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BorderedDiv from './BorderedDiv';
-import { Button } from './Buttons';
+
+import BorderedDiv from '../primitives/BorderedDiv';
+import { Button } from '../primitives/Buttons';
 
 class NewItem extends React.Component {
   constructor(props) {
