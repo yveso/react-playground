@@ -27,6 +27,11 @@ const items = (state=[], action) => {
       return updateItems(state, action.id, score => score + 1);
     case 'DECREASE_SCORE':
       return updateItems(state, action.id, score => score - 1);
+    case 'DELETE_ITEM':
+      return update(
+        state,
+        {$splice: [[state.findIndex(i => i.id === action.id), 1]]}
+      );
     default:
       return state;
   }

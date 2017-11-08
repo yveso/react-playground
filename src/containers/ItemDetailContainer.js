@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ItemDetail from '../components/ItemDetail';
 import increaseScore from '../actions/increaseScore';
 import decreaseScore from '../actions/decreaseScore';
+import deleteItem from '../actions/deleteItem';
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -19,7 +20,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     ),
     decrease: () => dispatch(
       decreaseScore(id)
-    )
+    ),
+    remove: () => {
+      dispatch(deleteItem(id));
+      ownProps.history.push('/');
+    }
   };
 };
 
