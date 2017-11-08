@@ -1,21 +1,15 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import List from './List';
-import NewItem from './NewItem';
+import ListContainer from '../containers/ListContainer';
+import NewItemContainer from '../containers/NewItemContainer';
 
-const Sidebar = (props) => {
+const Sidebar = () => {
   return (
     <div>
-      <List items={props.items} />
-      <NewItem add={props.addItem} />
+      <ListContainer />
+      <NewItemContainer />
   </div>
   );
-};
-
-Sidebar.propTypes = {
-  items: PropTypes.array.isRequired,
-  addItem: PropTypes.func.isRequired
 };
 
 export default Sidebar;
