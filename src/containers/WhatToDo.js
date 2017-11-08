@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const WhatToDo = (props) => {
+let WhatToDo = (props) => {
   return (
     <div>{ props.itemCount > 0 ? 'Choose' : 'Create'} an item!</div>
   );
@@ -10,5 +11,9 @@ const WhatToDo = (props) => {
 WhatToDo.propTypes = {
   itemCount: PropTypes.number.isRequired
 };
+
+WhatToDo = connect(
+  state => { return { itemCount: state.items.length }; }
+)(WhatToDo);
 
 export default WhatToDo;

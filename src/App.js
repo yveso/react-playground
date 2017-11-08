@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/Header';
-import WhatToDo from './components/WhatToDo';
+import WhatToDo from './containers/WhatToDo';
 import Sidebar from './components/Sidebar';
 import './App.css';
 
