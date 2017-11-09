@@ -13,7 +13,7 @@ const ListItem = (props) => {
   return (
     <li>
       <NavLink to={`/item/${id}`} style={{ textDecoration: 'none'}}>
-        <BorderedDiv>
+        <BorderedDiv className="sidebar_listitem">
           <ListItemHeading>{title}</ListItemHeading>
           <ListItemScore>{score}</ListItemScore>
         </BorderedDiv>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const ListItemScore = styled.span`
-  color: silver;
+  color: DimGrey;
   font-size: ${props => props.makeItBigger ? '15rem' : '5rem'};
 `;
 

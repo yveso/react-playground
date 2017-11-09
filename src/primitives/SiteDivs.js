@@ -7,7 +7,7 @@ const Site = styled.div`
 `;
 
 const SiteBody = styled.div`
-  background: rgb(237, 237, 248);
+  background-image: linear-gradient(to bottom, GhostWhite, LightSlateGray);;
   flex: 1 1 auto;
   display: flex;
 `;

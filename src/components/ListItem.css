@@ -3,6 +3,14 @@
 }
 
 .active > div {
-    background-color: gray;
-    border-color: red;
+    background-color: MediumSlateBlue ;
+    border: 2px solid red;
+}
+
+.sidebar_listitem {
+    background-color: Gainsboro;
+}
+
+.sidebar_listitem:hover {
+    background-color: silver;
 }
