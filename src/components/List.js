@@ -6,11 +6,12 @@ import OrderedList from '../primitives/OrderedList';
 import BorderedDiv from '../primitives/BorderedDiv';
 
 const List = (props) => {
-  const { items } = props;
+  const { items, totalCount } = props;
 
   return (
     <BorderedDiv>
       <h1>My Items</h1>
+      <p>{`Showing ${items.length}/${totalCount} items`}</p>
       <OrderedList>
         {
           items.sort((a, b) => b.score - a.score).map(
@@ -24,6 +25,7 @@ const List = (props) => {
 
 List.propTypes = {
   items: PropTypes.array,
+  totalCount: PropTypes.number.isRequired
 };
 
 export default List;
