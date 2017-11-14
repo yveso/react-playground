@@ -6,7 +6,10 @@ import themes from '../data/themes';
 const initialState = {
   items,
   themes,
-  filter: Math.min(...items.map(i => i.score)),
+  filter: {
+    isActive: true,
+    value: Math.min(...items.map(i => i.score))
+  },
   activeTheme: 'black'
 };
 

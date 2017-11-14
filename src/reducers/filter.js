@@ -1,9 +1,11 @@
 import { CHANGE_FILTER } from '../actions/changeFilter';
+import update from 'immutability-helper';
 
-const filter = (state=0, action) => {
+
+const filter = (state={}, action) => {
   switch (action.type) {
     case CHANGE_FILTER:
-      return action.filter;
+      return update(state, {value: {$set: action.value}});
     default:
       return state;
   }

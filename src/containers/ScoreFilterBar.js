@@ -5,7 +5,7 @@ import changeFilter from '../actions/changeFilter';
 const mapStateToProps = state => {
   const scores = state.items.map(i => i.score);
   return {
-    initialFilter: state.filter,
+    initialFilter: state.filter.value,
     min: scores.length ? Math.min(...scores) : null,
     max: scores.length ? Math.max(...scores) : null
   };
@@ -13,7 +13,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    change: filter => dispatch(changeFilter(filter))
+    change: value => dispatch(changeFilter(value))
   };
 };
 
