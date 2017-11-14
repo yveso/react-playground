@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const BorderedDiv = styled.div`
   border: 1px solid black;
-  color: ${props => props.theme.fg};
+  color: ${props => props.theme.bg};
   background: GhostWhite;
   border-radius: 5px;
   margin: 15px;
