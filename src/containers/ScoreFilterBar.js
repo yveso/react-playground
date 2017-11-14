@@ -6,8 +6,8 @@ const mapStateToProps = state => {
   const scores = state.items.map(i => i.score);
   return {
     initialFilter: state.filter,
-    min: Math.min(...scores),
-    max: Math.max(...scores)
+    min: scores.length ? Math.min(...scores) : null,
+    max: scores.length ? Math.max(...scores) : null
   };
 };
 
