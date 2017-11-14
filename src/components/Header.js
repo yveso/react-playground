@@ -4,15 +4,17 @@ import { Link } from 'react-router-dom';
 
 import FancyDiv from '../primitives/FancyDiv';
 import Heading from '../primitives/Heading';
+import ScoreFilterBar from '../containers/ScoreFilterBar';
 
 const Header = (props) => {
   return (
-    <Link to="/" style={{textDecoration: 'none'}}>
-      <FancyDiv>
+    <FancyDiv>
+      <Link to="/" style={{textDecoration: 'none'}}>
         <Heading>React Playground</Heading>
         <p>{props.message}</p>
-      </FancyDiv>
-    </Link>
+      </Link>
+        <ScoreFilterBar />
+    </FancyDiv>
   );
 };
 
