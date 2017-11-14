@@ -22,7 +22,7 @@ const items = (state=[], action) => {
       return update(
         state,
         {$push: [{
-          id: Date.now(),
+          id: action.id,
           title: action.title,
           score: 0
         }]}
