@@ -6,12 +6,13 @@ import OrderedList from '../primitives/OrderedList';
 import BorderedDiv from '../primitives/BorderedDiv';
 
 const List = (props) => {
-  const { items, totalCount } = props;
+  const { items, isFilterActive, totalCount } = props;
+  const countTxt = `${items.length}/${totalCount}`;
 
   return (
     <BorderedDiv>
       <h1>My Items</h1>
-      <p>{`Showing ${items.length}/${totalCount} items`}</p>
+      <p>{`Showing ${isFilterActive ? countTxt : 'ALL'} items`}</p>
       <OrderedList>
         {
           items.sort((a, b) => b.score - a.score).map(
@@ -25,6 +26,7 @@ const List = (props) => {
 
 List.propTypes = {
   items: PropTypes.array,
+  isFilterActive: PropTypes.bool.isRequired,
   totalCount: PropTypes.number.isRequired
 };
 
