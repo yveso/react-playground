@@ -4,7 +4,7 @@ import List from '../components/List';
 
 const mapStateToProps = state => {
   return {
-    items: state.items
+    items: state.items.filter(i => i.score >= state.filter)
   };
 };
 
