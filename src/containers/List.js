@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import List from '../components/List';
+import component from '../components/List';
 
 const mapStateToProps = state => {
   return {
@@ -9,10 +9,10 @@ const mapStateToProps = state => {
   };
 };
 
-const ListContainer = withRouter(
+const List = withRouter(
   connect(
     mapStateToProps
-  )(List)
+  )(component)
 );
 
-export default ListContainer;
+export default List;

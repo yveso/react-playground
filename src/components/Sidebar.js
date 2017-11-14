@@ -1,13 +1,13 @@
 import React from 'react';
 
-import ListContainer from '../containers/ListContainer';
-import NewItemContainer from '../containers/NewItemContainer';
+import List from '../containers/List';
+import NewItem from '../containers/NewItem';
 
 const Sidebar = () => {
   return (
     <div>
-      <ListContainer />
-      <NewItemContainer />
+      <List />
+      <NewItem />
   </div>
   );
 };

@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import store from './store/store';
 import ThemeContainer from './containers/ThemeContainer';
 import Footer from './containers/Footer';
-import ItemDetailContainer from './containers/ItemDetailContainer';
+import ItemDetail from './containers/ItemDetail';
 
 const App = () => {
   return (
@@ -25,7 +25,7 @@ const App = () => {
               <SiteMain>
                 <Switch>
                   <Route path="/" exact component={WhatToDo} />
-                  <Route path="/item/:id" component={ItemDetailContainer} />
+                  <Route path="/item/:id" component={ItemDetail} />
                   <Route component={() => <p>Nein</p>} />
                 </Switch>
               </SiteMain>

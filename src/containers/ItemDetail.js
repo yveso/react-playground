@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import ItemDetail from '../components/ItemDetail';
+import component from '../components/ItemDetail';
 import increaseScore from '../actions/increaseScore';
 import decreaseScore from '../actions/decreaseScore';
 import deleteItem from '../actions/deleteItem';
@@ -28,9 +28,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-const ItemDetailContainer = connect(
+const ItemDetail = connect(
   mapStateToProps,
   mapDispatchToProps
-)(ItemDetail);
+)(component);
 
-export default ItemDetailContainer;
+export default ItemDetail;

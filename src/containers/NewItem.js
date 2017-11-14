@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import addItem from '../actions/addItem';
-import NewItem from '../components/NewItem';
+import component from '../components/NewItem';
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -8,9 +8,9 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-const NewItemContainer = connect(
+const NewItem = connect(
   null,
   mapDispatchToProps
-)(NewItem);
+)(component);
 
-export default NewItemContainer;
+export default NewItem;
