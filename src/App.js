@@ -8,14 +8,14 @@ import { Site, SiteBody, SiteMain } from './primitives/SiteDivs';
 
 import { Provider } from 'react-redux';
 import store from './store/store';
-import ThemeContainer from './containers/ThemeContainer';
+import ConnectedThemeProvider from './containers/ConnectedThemeProvider';
 import Footer from './containers/Footer';
 import ItemDetail from './containers/ItemDetail';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <ThemeContainer>
+      <ConnectedThemeProvider>
         <BrowserRouter>
           <Site>
             <Header message="Toll, Toll, Supertoll"/>
@@ -34,7 +34,7 @@ const App = () => {
             <Footer />
           </Site>
         </BrowserRouter>
-      </ThemeContainer>
+      </ConnectedThemeProvider>
     </Provider>
   );
 };

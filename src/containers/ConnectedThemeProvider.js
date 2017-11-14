@@ -7,8 +7,8 @@ const mapStateToProps = state => {
   };
 };
 
-const ThemeContainer = connect(
+const ConnectedThemeProvider = connect(
   mapStateToProps
 )(ThemeProvider);
 
-export default ThemeContainer;
+export default ConnectedThemeProvider;
