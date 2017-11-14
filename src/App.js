@@ -9,7 +9,7 @@ import { Site, SiteBody, SiteMain } from './primitives/SiteDivs';
 import { Provider } from 'react-redux';
 import store from './store/store';
 import ThemeContainer from './containers/ThemeContainer';
-import FooterContainer from './containers/FooterContainer';
+import Footer from './containers/Footer';
 import ItemDetailContainer from './containers/ItemDetailContainer';
 
 const App = () => {
@@ -31,7 +31,7 @@ const App = () => {
               </SiteMain>
             </SiteBody>
 
-            <FooterContainer />
+            <Footer />
           </Site>
         </BrowserRouter>
       </ThemeContainer>
