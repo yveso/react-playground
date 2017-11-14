@@ -7,7 +7,7 @@ const initialState = {
   items,
   themes,
   filter: {
-    isActive: true,
+    isActive: false,
     value: Math.min(...items.map(i => i.score))
   },
   activeTheme: 'black'
